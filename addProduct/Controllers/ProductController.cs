@@ -51,7 +51,7 @@ namespace addProduct.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult editProduct(string id)
+        public IActionResult editProduct(string id, ProductDetail productEdit)
         {
             try
             {
@@ -66,8 +66,8 @@ namespace addProduct.Controllers
                 {
                     return BadRequest();
                 }
-                product.productName = product.productName;
-                product.productPrice = product.productPrice;
+                product.productName = productEdit.productName;
+                product.productPrice = productEdit.productPrice;
                 return Ok();
             }
             catch (Exception ex)
